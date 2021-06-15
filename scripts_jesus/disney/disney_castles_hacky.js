@@ -229,8 +229,16 @@ global.day = function() {
     experience.currentScene.shapeByName("cancion_noche").stop();
     experience.currentScene.shapeByName("cancion_dia").play();
 
-    global.customFadeOut(nightCastle, 0.1);
-    global.customFadeIn(dayCastle, 0.1);
+    global.customFadeOut(nightCastle, 0.01);
+    global.customFadeIn(dayCastle, 0.01);
+    dayCastle.animatePosition({
+        to: {x: 17.40, y: 2.15, z: -0.71},
+        duration: 0.01
+    })
+    nightCastle.animatePosition({
+        to: {x: 19.56, y: 2.15, z: -0.71},
+        duration: 0.1
+    })
     
     global.customShow(btnNight);
     global.customHide(btnDay);
@@ -254,9 +262,16 @@ global.night = function() {
     experience.currentScene.shapeByName("cancion_dia").stop();
     experience.currentScene.shapeByName("cancion_noche").play();
 
-    global.customFadeOut(dayCastle, 0.1);
-    global.customFadeIn(nightCastle, 0.1);
-    
+    global.customFadeOut(dayCastle, 0.01);
+    global.customFadeIn(nightCastle, 0.01);
+    dayCastle.animatePosition({
+        to: {x: 19.56, y: 2.15, z: -0.71},
+        duration: 0.1
+    })
+    nightCastle.animatePosition({
+        to: {x: 17.40, y: 2.15, z: -0.71},
+        duration: 0.01
+    })
 
     global.customShow(btnDay);
     global.customHide(btnNight);
