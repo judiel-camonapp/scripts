@@ -2,7 +2,7 @@
 local lastNumber
 
 function unlockScene()
-    setUserPreference("lastNumber", lastNumber)
+    setUserPreference("lastNumberPrincess", lastNumber)
 end
 
 function attachNumber()
@@ -54,7 +54,7 @@ function initBoard()
         
     end
 
-    if getUserPreference("lastNumber")  == btn_1.name then
+    if getUserPreference("lastNumberPrincess")  == btn_1.name then
         print(btn_2.name)
         swapPositions(btn_1, btn_1_accesible)
         swapPositions(btn_3, btn_3_blocked)
@@ -65,9 +65,9 @@ function initBoard()
         swapPositions(btn_8, btn_8_blocked)
         swapPositions(btn_9, btn_9_blocked)
 
-    elseif getUserPreference("lastNumber") == btn_2.name then
+    elseif getUserPreference("lastNumberPrincess") == btn_2.name then
         print(btn_2.name)
-        print(getUserPreference("lastNumber"))
+        print(getUserPreference("lastNumberPrincess"))
         swapPositions(btn_1, btn_1_accesible)
         swapPositions(btn_2, btn_2_accesible)
         swapPositions(btn_4, btn_4_blocked)
@@ -76,9 +76,9 @@ function initBoard()
         swapPositions(btn_7, btn_7_blocked)
         swapPositions(btn_8, btn_8_blocked)
         swapPositions(btn_9, btn_9_blocked)
-    elseif getUserPreference("lastNumber") == btn_3.name then
+    elseif getUserPreference("lastNumberPrincess") == btn_3.name then
         print(btn_3.name)
-        print(getUserPreference("lastNumber"))
+        print(getUserPreference("lastNumberPrincess"))
         swapPositions(btn_1, btn_1_accesible)
         swapPositions(btn_2, btn_2_accesible)
         swapPositions(btn_3, btn_3_accesible)
@@ -87,9 +87,9 @@ function initBoard()
         swapPositions(btn_7, btn_7_blocked)
         swapPositions(btn_8, btn_8_blocked)
         swapPositions(btn_9, btn_9_blocked)
-    elseif getUserPreference("lastNumber")  == btn_4.name then
+    elseif getUserPreference("lastNumberPrincess")  == btn_4.name then
         print(btn_4.name)
-        print(getUserPreference("lastNumber"))
+        print(getUserPreference("lastNumberPrincess"))
         swapPositions(btn_1, btn_1_accesible)
         swapPositions(btn_2, btn_2_accesible)
         swapPositions(btn_3, btn_3_accesible)
@@ -98,9 +98,9 @@ function initBoard()
         swapPositions(btn_7, btn_7_blocked)
         swapPositions(btn_8, btn_8_blocked)
         swapPositions(btn_9, btn_9_blocked)
-    elseif getUserPreference("lastNumber")  == btn_5.name then
+    elseif getUserPreference("lastNumberPrincess")  == btn_5.name then
         print(btn_5.name)
-        print(getUserPreference("lastNumber"))
+        print(getUserPreference("lastNumberPrincess"))
         swapPositions(btn_1, btn_1_accesible)
         swapPositions(btn_2, btn_2_accesible)
         swapPositions(btn_3, btn_3_accesible)
@@ -109,9 +109,9 @@ function initBoard()
         swapPositions(btn_7, btn_7_blocked)
         swapPositions(btn_8, btn_8_blocked)
         swapPositions(btn_9, btn_9_blocked)
-    elseif getUserPreference("lastNumber") == btn_6.name then
+    elseif getUserPreference("lastNumberPrincess") == btn_6.name then
         print(btn_6.name)
-        print(getUserPreference("lastNumber"))
+        print(getUserPreference("lastNumberPrincess"))
         swapPositions(btn_1, btn_1_accesible)
         swapPositions(btn_2, btn_2_accesible)
         swapPositions(btn_3, btn_3_accesible)
@@ -120,9 +120,9 @@ function initBoard()
         swapPositions(btn_6, btn_6_accesible)
         swapPositions(btn_8, btn_8_blocked)
         swapPositions(btn_9, btn_9_blocked)
-    elseif getUserPreference("lastNumber") == btn_7.name then
+    elseif getUserPreference("lastNumberPrincess") == btn_7.name then
         print(btn_7.name)
-        print(getUserPreference("lastNumber"))
+        print(getUserPreference("lastNumberPrincess"))
         swapPositions(btn_1, btn_1_accesible)
         swapPositions(btn_2, btn_2_accesible)
         swapPositions(btn_3, btn_3_accesible)
@@ -131,9 +131,9 @@ function initBoard()
         swapPositions(btn_6, btn_6_accesible)
         swapPositions(btn_7, btn_7_accesible)
         swapPositions(btn_9, btn_9_blocked)
-    elseif getUserPreference("lastNumber") == btn_8.name then
+    elseif getUserPreference("lastNumberPrincess") == btn_8.name then
         print(btn_8.name)
-        print(getUserPreference("lastNumber"))
+        print(getUserPreference("lastNumberPrincess"))
         swapPositions(btn_1, btn_1_accesible)
         swapPositions(btn_2, btn_2_accesible)
         swapPositions(btn_3, btn_3_accesible)
@@ -144,7 +144,7 @@ function initBoard()
         swapPositions(btn_8, btn_8_accesible)
     else 
         print(btn_1.name)
-        print(getUserPreference("lastNumber"))
+        print(getUserPreference("lastNumberPrincess"))
         swapPositions(btn_2, btn_2_blocked)
         swapPositions(btn_3, btn_3_blocked)
         swapPositions(btn_4, btn_4_blocked)
