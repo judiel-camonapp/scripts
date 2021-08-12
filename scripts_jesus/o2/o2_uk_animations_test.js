@@ -23,7 +23,7 @@ global.data.sideConfig = {
         specs: {
             position: { x: 3, y: 3.70, z: 0.56 }
         }
-    },
+    }
 }
 
 global.data.models = [{
@@ -33,7 +33,7 @@ global.data.models = [{
     scaleTo: 18.50,
     scaleToComparison: 6,
     comparisonY: 5,
-    positionFrom: { x: 3.35, y: 3.28, z: -1.70 },
+    positionFrom: { x: 3, y: 3.28, z: -1.70 },
     rotationFrom: { x: 0, y: 90, z: 0 },
     rotationTo: { x: 0, y: 464, z: 0 }
 
@@ -45,7 +45,7 @@ global.data.models = [{
     scaleTo: 17.00,
     scaleToComparison: 6,
     comparisonY: 5,
-    positionFrom: { x: 3.35, y: 3.20, z: 0 },
+    positionFrom: { x: 3, y: 3.20, z: 0 },
     rotationFrom: { x: 0, y: 90, z: 0 },
     rotationTo: { x: 0, y: 464, z: 0 }
 },
@@ -54,10 +54,10 @@ global.data.models = [{
     side: 2,
     // temporal scale
     scaleFrom: 0.17,
-    scaleTo: 0.50,
-    scaleToComparison: 0.7,
+    scaleTo: 1,
+    scaleToComparison: 6,
     comparisonY: 5,
-    positionFrom: { x: 3.35, y: 3.16, z: 1.70 },
+    positionFrom: { x: 3, y: 3.16, z: 1.70 },
     rotationFrom: { x: 0, y: 90, z: 0 },
     rotationTo: { x: 0, y: 464, z: 0 }
 },
@@ -68,7 +68,7 @@ global.data.models = [{
     scaleTo: 17.00,
     scaleToComparison: 6,
     comparisonY: 5,
-    positionFrom: { x: -3.35, y: 3.20, z: 0.85 },
+    positionFrom: { x: -3, y: 3.20, z: 0.85 },
     rotationFrom: { x: 0, y: 90, z: 0 },
     rotationTo: { x: 0, y: 464, z: 0 }
 },
@@ -79,7 +79,7 @@ global.data.models = [{
     scaleTo: 17.00,
     scaleToComparison: 6,
     comparisonY: 5,
-    positionFrom: { x: -3.35, y: 3.20, z: -0.85 },
+    positionFrom: { x: -3, y: 3.20, z: -0.85 },
     rotationFrom: { x: 0, y: 90, z: 0 },
     rotationTo: { x: 0, y: 464, z: 0 }
 }
@@ -91,7 +91,7 @@ global.data.comparisonConfig = {
                 position: { x: 2.90, y: 5.0, z: -1 }
             },
             specs: {
-                position: { x: 3.00, y: 3.70, z: -1 },
+                position: { x: 3.70, y: 3.70, z: -1 },
                 scale: 0.35
             }
         },
@@ -100,42 +100,33 @@ global.data.comparisonConfig = {
                 position: { x: 2.90, y: 5.0, z: 1 }
             },
             specs: {
-                position: { x: 3, y: 3.70, z: 1 },
+                position: { x: 3.70, y: 3.70, z: 1 },
                 scale: 0.35
             }
-        },
-        button:{
-            position: { x: 2.90, y: 2.05, z: 0 }
         }
-        
     },
     // a la espera de data
     side2: {
         first: {
             model: {
-                position: { x: -2.90, y: 5, z: 1 }
+                position: { x: -2.22, y: 0, z: 1.07 }
             },
             specs: {
-                position: { x: -3, y: 3.70, z: 1 },
+                position: { x: -2.55, y: 2.79, z: 1.2 },
                 scale: 0.35
             }
         },
         second: {
             model: {
-                position: { x: -2.90, y: 5, z: -1 }
+                position: { x: -2.14, y: 0, z: -1.07 }
             },
             specs: {
-                position: { x: -3, y: 3.70, z: -1 },
+                position: { x: -2.55, y: 2.79, z: -1.22 },
                 scale: 0.35
             }
-        },
-        button:{
-            position: { x: -2.90, y: 2.05, z: 0 }
         }
     }
 }
-
-// animaciones
 
 global.fadeIn = function(obj) {
     obj.animateAlpha({
@@ -153,30 +144,6 @@ global.fadeOut = function(obj) {
     });
 }
 
-global.scaleUp = function(obj, scale){
-    obj.animateScale({
-        to: scale,
-        duration: 0.5,
-        easing: "cubicInOut"
-    });
-}
-
-global.scaleDown = function(obj){
-    obj.animateScale({
-        to: 0,
-        duration: 0.5,
-        easing: "cubicInOut"
-    });
-}
-
-global.swapAnimation = function(){
-
-}
-
-
-
-
-
 global.getModelInfo = function(modelName) {
     var modelInfo = null;
     global.data.models.forEach(m => {
@@ -193,7 +160,7 @@ global.getModelInfo = function(modelName) {
 
 
 
-
+// SE TIENE Y SE ENTIENDE PERFECTO!
 global.initModels = function() {
     global.data.currentModelName = null;
     global.animateAllModels();
@@ -213,7 +180,7 @@ global.animateAllModels = function() {
         });
     });
 }
-
+// SE TIENE Y SE ENTIENDE PERFECTO
 
 
 
@@ -234,12 +201,7 @@ global.minimizeModel = function(modelName) {
     // global.toggleFloorHints(true);
     global.toggle3DModel(modelName, false);
     global.toggle3DModelSpecs(modelName, false);
-    delay(
-        function(){
-            global.toggleSide([modelName], global.getModelInfo(modelName).side, true);
-        }, 0.8
-    )
-    
+    global.toggleSide([modelName], global.getModelInfo(modelName).side, true);
     global.data.currentModelName = null;
     global.data.currentSpecsModeIsTariff = false;
 }
@@ -318,22 +280,8 @@ global.toggle3DModelSpecs = function(modelName, show) {
     var elButtonsDisabled = ["button_tariff_selected", "button_specs"];
 
     var elSpecsAll = ["tariff_back", "specs"];
-
-
-    let info = experience.currentScene.shapeByName(modelName + "_button_info")
-    let specs = experience.currentScene.shapeByName(modelName + "_specs")
-    let infoBack = experience.currentScene.shapeByName(modelName + "_button_info_back")
-    let specsNext = experience.currentScene.shapeByName(modelName + "_specs_next")
-
-
     if (show) {
         var element = experience.currentScene.shapeByName(modelName + "_specs");
-        info.position = new Vector(info.position.x, info.position.y - 100, info.position.z)
-        delay(
-            function(){
-                global.fadeIn(info)
-            },1
-        )
         if (element.position.y > 100) {
             var sideConfig = global.data.sideConfig["side" + modelInfo.side];
             element.position = new Vector(sideConfig.specs.position.x, sideConfig.specs.position.y, sideConfig.specs.position.z);
@@ -342,7 +290,6 @@ global.toggle3DModelSpecs = function(modelName, show) {
         global.fadeIn(element);
 
         elButtonsEnabled.forEach(elementName => {
-            
             var element = experience.currentScene.shapeByName("side" + modelInfo.side + "_" + elementName);
             if (element.position.y > 100) {
                 element.position = new Vector(element.position.x, element.position.y - 100, element.position.z);
@@ -359,34 +306,6 @@ global.toggle3DModelSpecs = function(modelName, show) {
             element.clickable = false;
         });
     } else {
-        if(infoBack.position.y > 100){
-            delay(
-                function(){
-                    info.position = new Vector(info.position.x, info.position.y + 100, info.position.z)
-                    specs.position = new Vector(specs.position.x, specs.position.y + 100, specs.position.z)
-                },1
-            )
-            
-
-            global.fadeOut(info)
-            global.fadeOut(specs)
-            global.fadeOut(infoBack)
-            global.fadeOut(specsNext)
-        }else{
-            delay(
-                function(){
-                    infoBack.position = new Vector(infoBack.position.x, infoBack.position.y + 100, infoBack.position.z)
-                    specsNext.position = new Vector(specsNext.position.x, specsNext.position.y + 100, specsNext.position.z)
-                },1
-            )
-            
-            
-            global.fadeOut(info)
-            global.fadeOut(specs)
-            global.fadeOut(infoBack)
-            global.fadeOut(specsNext)
-        }
-
         elSpecsAll.forEach(elementName => {
             var element = experience.currentScene.shapeByName(modelName + "_" + elementName);
             global.fadeOut(element);
@@ -414,25 +333,6 @@ global.toggle3DModelSpecs = function(modelName, show) {
                 }, 1000);
             };
         });
-    }
-}
-
-global.toggleNextSpecs = function(name){
-    let info = experience.currentScene.shapeByName(name + "_button_info")
-    let specs = experience.currentScene.shapeByName(name + "_specs")
-    let infoBack = experience.currentScene.shapeByName(name + "_button_info_back")
-    let specsNext = experience.currentScene.shapeByName(name + "_specs_next")
-
-    if(infoBack.position.y > 100){
-        infoBack.position = new Vector(infoBack.position.x, infoBack.position.y - 100, infoBack.position.z)
-        specsNext.position = new Vector(specsNext.position.x, specsNext.position.y - 100, specsNext.position.z)
-        info.position = new Vector(info.position.x, info.position.y + 100, info.position.z)
-        specs.position = new Vector(specs.position.x, specs.position.y + 100, specs.position.z)
-    }else{
-        infoBack.position = new Vector(infoBack.position.x, infoBack.position.y + 100, infoBack.position.z)
-        specsNext.position = new Vector(specsNext.position.x, specsNext.position.y + 100, specsNext.position.z)
-        info.position = new Vector(info.position.x, info.position.y - 100, info.position.z)
-        specs.position = new Vector(specs.position.x, specs.position.y - 100, specs.position.z)
     }
 }
 
@@ -477,28 +377,16 @@ global.closeModel = function() {
 }
 
 global.toggleModelSpecs = function(showTariff) {
-
     if (global.data.currentSpecsAreToggling)
-    return;
-    
+        return;
+
     var modelName = global.data.currentModelName;
-    let info = experience.currentScene.shapeByName(modelName + "_button_info")
-    let specs = experience.currentScene.shapeByName(modelName + "_specs")
-    let infoBack = experience.currentScene.shapeByName(modelName + "_button_info_back")
-    let specsNext = experience.currentScene.shapeByName(modelName + "_specs_next")
 
     if ((!global.data.currentSpecsModeIsTariff && showTariff) || (global.data.currentSpecsModeIsTariff && !showTariff)) {
         global.data.currentSpecsAreToggling = true;
         global.data.currentSpecsModeIsTariff = !global.data.currentSpecsModeIsTariff;
 
         if (showTariff) {
-            if(infoBack.position.y > 100){
-                info.position = new Vector(info.position.x, info.position.y + 100, info.position.z)
-                specs.position = new Vector(specs.position.x, specs.position.y + 100, specs.position.z)
-            }else{
-                infoBack.position = new Vector(infoBack.position.x, infoBack.position.y + 100, infoBack.position.z)
-                specsNext.position = new Vector(specsNext.position.x, specsNext.position.y + 100, specsNext.position.z)
-            }
             var element = experience.currentScene.shapeByName(modelName + "_specs");
             global.fadeOut(element);
             if (element.position.y < 100) {
@@ -517,9 +405,8 @@ global.toggleModelSpecs = function(showTariff) {
                 });
             }, 300);
         } else {
-            info.position = new Vector(info.position.x, info.position.y - 100, info.position.z)
-            
-                var element = experience.currentScene.shapeByName(modelName + "_" + "tariff_back");
+            ["tariff_back"].forEach(elementName => {
+                var element = experience.currentScene.shapeByName(modelName + "_" + elementName);
                 element.clickable = false;
                 global.fadeOut(element);
                 if (element.position.y < 100) {
@@ -527,6 +414,7 @@ global.toggleModelSpecs = function(showTariff) {
                         element.position = new Vector(element.position.x, element.position.y + 100, element.position.z);
                     }, 1000);
                 };
+            });
             
 
             setTimeout(function() {
@@ -566,7 +454,7 @@ global.addModelToComparison = function(obj) {
         global.data.comparisonMode = true;
 
         // Se ocultan todos los botones, de aca en mas solo se puede comparar
-        var elements = ["btn_specs", "btn_eshop", "btn_shop_text", "btn_specs_text"];
+        var elements = ["btn_specs", "btn_eshop"];
         global.data.models.forEach(m => {
             elements.forEach(elementName => {
                 var element = experience.currentScene.shapeByName(m.name + "_" + elementName);
@@ -598,7 +486,7 @@ global.showComparisonInitialDialog = function() {
     modelCompareButton.clickable = false;
 
     var dialog = experience.currentScene.shapeByName("compare_first_back");
-    dialog.position = new Vector(modelCompareButton.position.x, modelCompareButton.position.y + 0.75, modelCompareButton.position.z);
+    dialog.position = new Vector(modelCompareButton.position.x, modelCompareButton.position.y + 0.65, modelCompareButton.position.z);
     dialog.rotation = new Vector(0, modelInfo.side == 1 ? 90 : -90, 0);
     global.fadeIn(dialog);
 }
@@ -688,7 +576,6 @@ global.freezeAllModels = function() {
 }
 
 global.toggleCloseForComparison = function(side, show) {
-    
     var close = experience.currentScene.shapeByName("side" + side + "_comparison_close");
     if (show) {
         if (close.position.y > 100) {
@@ -708,11 +595,6 @@ global.toggleCloseForComparison = function(side, show) {
 }
 
 global.toggle3DModelForComparison = function(modelName, isFirst, side, maximize) {
-    if(side == 2){
-        side = side-1
-    }else{
-        side = side+1
-    }
     var model = experience.currentScene.shapeByName(modelName + "_model");
     var modelInfo = global.getModelInfo(modelName);
     var comparisonSideConfig = global.data.comparisonConfig["side" + side][isFirst ? "first" : "second"];
@@ -771,90 +653,20 @@ global.toggle3DModelForComparison = function(modelName, isFirst, side, maximize)
 }
 
 global.toggle3DModelSpecsForComparison = function(modelName, isFirst, side, show) {
-    if(side == 2){
-        side = side-1
-    }else{
-        side = side+1
-    }
     var comparisonSideConfig = global.data.comparisonConfig["side" + side][isFirst ? "first" : "second"];
-    var comparisonButtonSideConfig = global.data.comparisonConfig["side" + side]
-    var specs = experience.currentScene.shapeByName(modelName + "_specs_compare");
-    var specs2 = experience.currentScene.shapeByName(modelName + "_specs_compare_next")
-    var moreInfo = experience.currentScene.shapeByName("comparison_button_info")
-    var moreInfo2 = experience.currentScene.shapeByName("comparison_button_info_back")
+    var specs = experience.currentScene.shapeByName(modelName + "_specs");
 
     if (show) {
         specs.position = new Vector(comparisonSideConfig.specs.position.x, comparisonSideConfig.specs.position.y, comparisonSideConfig.specs.position.z);
-        specs.rotation = new Vector(0, side == 1 ? -90 : 90, 0);
+        specs.rotation = new Vector(0, side == 1 ? 90 : -90, 0);
         specs.scale = comparisonSideConfig.specs.scale;
-        moreInfo.position = new Vector(comparisonButtonSideConfig.button.position.x, comparisonButtonSideConfig.button.position.y, comparisonButtonSideConfig.button.position.z)
-        moreInfo.rotation = new Vector(0, side == 1 ? -90 : 90, 0);
         global.fadeIn(specs);
-        global.fadeIn(moreInfo)
     } else {
         global.fadeOut(specs);
-        global.fadeOut(specs2);
-        global.fadeOut(moreInfo);
-        global.fadeOut(moreInfo2);
-        moreInfo.position = new Vector(moreInfo.position.x, 100, moreInfo.position.z);
-        moreInfo2.position = new Vector(moreInfo2.position.x, 100, moreInfo2.position.z);
         setTimeout(function() {
-            specs.position = new Vector(specs.position.x, 103.70, specs.position.z);
-            specs2.position = new Vector(specs2.position.x, 103.70, specs2.position.z);
+            specs.position = new Vector(specs.position.x, specs.position.y + 100, specs.position.z);
         }, 1000);
     }
-}
-
-global.comparisonSpecsToggle = function(model1, model2){
-    let firstSpecs_1 = experience.currentScene.shapeByName(model1 + "_specs_compare")
-    let firstSpecs_2 = experience.currentScene.shapeByName(model1 + "_specs_compare_next")
-    let secondSpecs_1 = experience.currentScene.shapeByName(model2 + "_specs_compare")
-    let secondSpecs_2 = experience.currentScene.shapeByName(model2 + "_specs_compare_next")
-    let moreInfo_1 = experience.currentScene.shapeByName("comparison_button_info")
-    let moreInfo_2 = experience.currentScene.shapeByName("comparison_button_info_back")
-
-    let firstSpecs_1_position = new Vector(firstSpecs_1.position.x, firstSpecs_1.position.y, firstSpecs_1.position.z)
-    let firstSpecs_2_position = new Vector(firstSpecs_2.position.x, firstSpecs_2.position.y, firstSpecs_2.position.z)
-    let secondSpecs_1_position = new Vector(secondSpecs_1.position.x, secondSpecs_1.position.y, secondSpecs_1.position.z)
-    let secondSpecs_2_position = new Vector(secondSpecs_2.position.x, secondSpecs_2.position.y, secondSpecs_2.position.z)
-    let moreInfo_1_position = new Vector(moreInfo_1.position.x, moreInfo_1.position.y, moreInfo_1.position.z)
-    let moreInfo_2_position = new Vector(moreInfo_2.position.x, moreInfo_2.position.y, moreInfo_2.position.z)
-
-    let firstSpecs_1_rotation = new Vector(firstSpecs_1.rotation.x, firstSpecs_1.rotation.y, firstSpecs_1.rotation.z)
-    let firstSpecs_2_rotation = new Vector(firstSpecs_2.rotation.x, firstSpecs_2.rotation.y, firstSpecs_2.rotation.z)
-    let secondSpecs_1_rotation = new Vector(secondSpecs_1.rotation.x, secondSpecs_1.rotation.y, secondSpecs_1.rotation.z)
-    let secondSpecs_2_rotation = new Vector(secondSpecs_2.rotation.x, secondSpecs_2.rotation.y, secondSpecs_2.rotation.z)
-    let moreInfo_1_rotation = new Vector(moreInfo_1.rotation.x, moreInfo_1.rotation.y, moreInfo_1.rotation.z)
-    let moreInfo_2_rotation = new Vector(moreInfo_2.rotation.x, moreInfo_2.rotation.y, moreInfo_2.rotation.z)
-
-    firstSpecs_2.position = new Vector(firstSpecs_1_position.x, firstSpecs_1_position.y, firstSpecs_1_position.z)
-    firstSpecs_1.position = new Vector(firstSpecs_2_position.x, firstSpecs_2_position.y, firstSpecs_2_position.z)
-    secondSpecs_2.position = new Vector(secondSpecs_1_position.x, secondSpecs_1_position.y, secondSpecs_1_position.z)
-    secondSpecs_1.position = new Vector(secondSpecs_2_position.x, secondSpecs_2_position.y, secondSpecs_2_position.z)
-    moreInfo_2.position = new Vector(moreInfo_1_position.x, moreInfo_1_position.y, moreInfo_1_position.z)
-    moreInfo_1.position = new Vector(moreInfo_2_position.x, moreInfo_2_position.y, moreInfo_2_position.z)
-    
-    firstSpecs_2.rotation = new Vector(firstSpecs_1_rotation.x, firstSpecs_1_rotation.y, firstSpecs_1_rotation.z)
-    firstSpecs_1.rotation = new Vector(firstSpecs_2_rotation.x, firstSpecs_2_rotation.y, firstSpecs_2_rotation.z)
-    secondSpecs_2.rotation = new Vector(secondSpecs_1_rotation.x, secondSpecs_1_rotation.y, secondSpecs_1_rotation.z)
-    secondSpecs_1.rotation = new Vector(secondSpecs_2_rotation.x, secondSpecs_2_rotation.y, secondSpecs_2_rotation.z)
-    moreInfo_2.rotation = new Vector(moreInfo_1_rotation.x, moreInfo_1_rotation.y, moreInfo_1_rotation.z)
-    moreInfo_1.rotation = new Vector(moreInfo_2_rotation.x, moreInfo_2_rotation.y, moreInfo_2_rotation.z)
-    
-    
-
-    firstSpecs_2.alpha = 1
-    firstSpecs_1.alpha = 1
-    secondSpecs_2.alpha = 1
-    secondSpecs_1.alpha = 1
-
-    firstSpecs_2.alpha = 1
-    firstSpecs_1.alpha = 1
-    secondSpecs_2.alpha = 1
-    secondSpecs_1.alpha = 1
-    
-    moreInfo_2.alpha = 1
-    moreInfo_1.alpha = 1
 }
 
 global.exitComparisonMode = function() {
@@ -879,7 +691,7 @@ global.exitComparisonMode = function() {
     global.toggleCloseForComparison(secondModel.side, false);
 
     // Se vuelven a mostrar todos los botones
-    var elements = ["btn_specs", "btn_eshop", "btn_compare_text", "btn_specs_text"];
+    var elements = ["btn_specs", "btn_eshop"];
     global.data.models.forEach(m => {
         elements.forEach(elementName => {
             var element = experience.currentScene.shapeByName(m.name + "_" + elementName);
@@ -892,3 +704,4 @@ global.exitComparisonMode = function() {
     global.data.comparisonModelName1 = null;
     global.data.comparisonModelName2 = null;
 }
+
