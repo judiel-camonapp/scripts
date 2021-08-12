@@ -2,7 +2,6 @@ global.data.pollAnswer = [false, false, false];
 global.data.comparisonMode = false;
 global.data.comparisonModelName1 = null;
 global.data.comparisonModelName2 = null;
-global.data.comparisonMode = false;
 global.data.currentModelName = null;
 global.data.currentSpecsModeIsVideo = false;
 global.data.currentSpecsAreToggling = false;
